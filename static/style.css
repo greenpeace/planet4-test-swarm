@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  background-color: #eee;
+  color: #2c3e50;
+}
+
+a {
+  color: #42b983;
+}
+
+.page-wrap {
+  margin: 20px auto 50px auto;
+  width: 960px;
+  max-width: 95%;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 100%;
+  height: 50px;
+}
+
+#loading {
+  margin: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.item {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+  align-self: flex-start;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.title.off {
+  color: #dc3545;
+}
+
+.title.on {
+  color: #42b983;
+}
+
+.icon {
+  max-width: 30px;
+  float: left;
+  margin-right: 15px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 46%;
+  margin-bottom: 20px;
+}
+
+@keyframes three-quarters {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.three-quarters:not(:required) {
+  animation: three-quarters 1250ms infinite linear;
+  border: 8px solid #42b983;
+  border-right-color: transparent;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
