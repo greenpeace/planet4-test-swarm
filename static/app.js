@@ -15,15 +15,15 @@ request.onload = function() {
     Object.entries(data).forEach(item => {
       let status = 'off';
       let title = item[0];
-      let url = 'https://github.com/greenpeace/planet4-test-' + title + '/blob/develop/composer-local.json';
+      let git_url = 'https://github.com/greenpeace/planet4-test-' + title;
+      let web_url = 'https://k8s.p4.greenpeace.org/test-' + title;
       if (item[1]) {
         status = 'on';
       }
       html += `<div class="item">
-        <a href="${url}" target="_blank">
-          <img src="static/server.svg" alt="server" class="icon">
-        </a>
         <div class="title ${status}">${title}</div>
+        <a href="${git_url}" target="_blank" class="link"><img src="static/git-square.svg" alt="source"></a>
+        <a href="${web_url}" target="_blank" class="link"><img src="static/external-link-square.svg" alt="web"></a>
       </div>`;
     });
 
