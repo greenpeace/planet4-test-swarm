@@ -1,0 +1,4 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['functions', 'deploy', 'p4-test-swarm', '--trigger-http', '--runtime', 'python37', '--entry-point', 'main']
+  dir: 'functions/autodeploy'
