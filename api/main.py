@@ -41,7 +41,7 @@ def main(request):
         fields = ticket['fields']
         env = fields['environment']
         if env in SWARM:
-            SWARM[env] = 0
+            SWARM[env] = ticket['key'];
 
     output = json.dumps(SWARM)
 
