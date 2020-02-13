@@ -14,17 +14,23 @@ request.onload = function() {
 
     Object.entries(data).forEach(item => {
       let status = 'off';
-      let title = item[0];
-      let git_url = 'https://github.com/greenpeace/planet4-test-' + title;
-      let web_url = 'https://k8s.p4.greenpeace.org/test-' + title;
-      if (item[1]) {
+      const title = item[0];
+      const git_url = 'https://github.com/greenpeace/planet4-test-' + title;
+      const web_url = 'https://k8s.p4.greenpeace.org/test-' + title;
+      if (item[1] === 1) {
         status = 'on';
       }
       html += `<div class="item">
         <div class="title ${status}">${title}</div>
         <a href="${git_url}" target="_blank" class="link"><img src="static/git-square.svg" alt="source"></a>
-        <a href="${web_url}" target="_blank" class="link"><img src="static/external-link-square.svg" alt="web"></a>
-      </div>`;
+        <a href="${web_url}" target="_blank" class="link"><img src="static/external-link-square.svg" alt="web"></a>`
+
+      if (status == 'off') {
+        const ticket_url = 'https://jira.greenpeace.org/browse/' + item[1];
+        html += `<a href="${ticket_url}" target="_blank" class="link"><img src="static/tag.svg" alt="ticket"></a>`;
+      }
+
+      html += `</div>`;
     });
 
     html += `</div>`;
