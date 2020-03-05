@@ -24,7 +24,7 @@ SWARM = {
 
 
 def main(request):
-    response = requests.get(JIRA_API_QUERY)
+    response = requests.get(JIRA_API_QUERY, verify=False)
 
     headers = {
         'Access-Control-Allow-Origin': '*',
