@@ -9,6 +9,7 @@ request.onload = function() {
   if (this.status == 200) {
     const data = JSON.parse(this.response);
     document.getElementById('loading').style.display = 'none';
+    document.getElementById('note').style.display = 'block';
 
     let html = `<div class="grid">`;
 
