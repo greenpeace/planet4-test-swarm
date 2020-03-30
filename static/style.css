@@ -66,6 +66,9 @@ header {
 
 .note {
   display: none;
+  margin-top: 20px;
+  border-top: 1px solid lightgray;
+  padding-top: 20px;
 }
 
 .box {
@@ -90,12 +93,6 @@ header {
 .link img {
   max-width: 15px;
   vertical-align: text-top;
-}
-
-.note {
-  margin-top: 20px;
-  border-top: 1px solid lightgray;
-  padding-top: 20px;
 }
 
 footer {

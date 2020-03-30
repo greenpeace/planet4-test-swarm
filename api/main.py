@@ -19,7 +19,8 @@ SWARM = {
     'phoebe': 1,
     'tavros': 1,
     'iocaste': 1,
-    'atlas': 1
+    'atlas': 1,
+    'nix': 1
 }
 
 
