@@ -5,22 +5,22 @@ JIRA_API_QUERY='https://jira.greenpeace.org/rest/api/2/search?jql=project%20%3D%
 
 # https://namingschemes.com/Solar_System
 SWARM = {
-    'venus': 1,
-    'mars': 1,
-    'jupiter': 1,
-    'saturn': 1,
-    'uranus': 1,
-    'neptune': 1,
-    'pluto': 1,
-    'phobos': 1,
-    'deimos': 1,
-    'titan': 1,
-    'pandora': 1,
-    'phoebe': 1,
-    'tavros': 1,
-    'iocaste': 1,
     'atlas': 1,
-    'nix': 1
+    'deimos': 1,
+    'iocaste': 1,
+    'jupiter': 1,
+    'mars': 1,
+    'neptune': 1,
+    'nix': 1,
+    'pandora': 1,
+    'phobos': 1,
+    'phoebe': 1,
+    'pluto': 1,
+    'saturn': 1,
+    'tavros': 1,
+    'titan': 1,
+    'uranus': 1,
+    'venus': 1
 }
 
 
