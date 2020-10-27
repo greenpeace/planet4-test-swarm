@@ -28,10 +28,10 @@
 
     linkRow.style.marginTop = '12px';
     linkRow.innerHTML = `
-<a style="${buttonStyle}" target="_blank" href="https://k8s.p4.greenpeace.org/test-${testEnv}">frontend</a>
-<a style="${buttonStyle}" target="_blank" href="https://k8s.p4.greenpeace.org/test-${testEnv}/wp-admin/">admin</a>
+<a style="${buttonStyle}" target="_blank" href="https://www-dev.greenpeace.org/test-${testEnv}">frontend</a>
+<a style="${buttonStyle}" target="_blank" href="https://www-dev.greenpeace.org/test-${testEnv}/wp-admin/">admin</a>
 <a style="${buttonStyle}" target="_blank" href="https://github.com/greenpeace/planet4-test-${testEnv}/blob/develop/composer-local.json">composer-local.json</a>
-<a style="${buttonStyle}" target="_blank" href="https://circleci.com/gh/greenpeace/workflows/planet4-test-${testEnv}/tree/develop">circle ci</a>
+<a style="${buttonStyle}" target="_blank" href="https://app.circleci.com/pipelines/github/greenpeace/planet4-test-${testEnv}">circle ci</a>
 `
     envRow.appendChild(linkRow)
 })()
