@@ -17,8 +17,8 @@ request.onload = function() {
       let status = 'off';
       const title = item[0];
       const git_url = 'https://github.com/greenpeace/planet4-test-' + title;
-      const web_url = 'https://k8s.p4.greenpeace.org/test-' + title;
-      const ci_url = 'https://circleci.com/gh/greenpeace/workflows/planet4-test-' + title;
+      const web_url = 'https://www-dev.greenpeace.org/test-' + title;
+      const ci_url = 'https://app.circleci.com/pipelines/github/greenpeace/planet4-test-' + title;
       if (item[1] === 1) {
         status = 'on';
       }
