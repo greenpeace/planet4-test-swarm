@@ -19,10 +19,14 @@ SWARM = {
     'phobos': 1,
     'phoebe': 1,
     'pluto': 1,
+    'proteus': 1,
     'rhea': 1,
     'saturn': 1,
+    'sinope': 1,
     'tavros': 1,
+    'telesto': 1,
     'titan': 1,
+    'umbriel': 1,
     'uranus': 1,
     'venus': 1
 }
