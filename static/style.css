@@ -18,7 +18,7 @@ a {
 
 .page-wrap {
   margin: 20px auto 50px auto;
-  width: 960px;
+  width: 1200px;
   max-width: 95%;
 }
 
@@ -37,7 +37,7 @@ header {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
 }
@@ -69,6 +69,14 @@ header {
   margin-top: 20px;
   border-top: 1px solid lightgray;
   padding-top: 20px;
+}
+
+.status {
+  float: left;
+}
+
+.links {
+  float: right;
 }
 
 .box {
