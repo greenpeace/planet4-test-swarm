@@ -3,6 +3,9 @@ import requests
 
 JIRA_API_QUERY='https://jira.greenpeace.org/rest/api/2/search?jql=project%20%3D%20PLANET%20AND%20status%20in%20(%22IN%20PROGRESS%22%2C%20%22IN%20DEVELOPMENT%22%2C%20%22IN%20TESTING%22%2C%20%22In%20Review%22)%20AND%20Track%20in%20(Development%2C%20Infra)&fields=summary,customfield_13000'
 
+BLOCKS_ENDPOINT='https://api.github.com/repos/greenpeace/planet4-plugin-gutenberg-blocks/issues?state=open&labels=env-test-{0}'
+THEME_ENDPOINT='https://api.github.com/repos/greenpeace/planet4-master-theme/issues?state=open&labels=env-test-{0}'
+
 # https://namingschemes.com/Solar_System
 SWARM = {
     'atlas': 1,
@@ -54,6 +57,13 @@ def main(request):
                 env = item['value']
                 if env in SWARM:
                     SWARM[env] = ticket['key']
+
+    for name in SWARM:
+        theme_response = requests.get(THEME_ENDPOINT.format(name)
+        print(theme_response)
+        blocks_response = requests.get(BLOCKS_ENDPOINT.format(name)
+        print(blocks_response)
+
 
     output = json.dumps(SWARM)
 
