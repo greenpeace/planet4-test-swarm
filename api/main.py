@@ -27,7 +27,6 @@ SWARM = {
     'telesto': 1,
     'titan': 1,
     'umbriel': 1,
-    'uranus': 1,
     'venus': 1
 }
 
