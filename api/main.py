@@ -1,7 +1,7 @@
 import json
 import requests
 
-JIRA_API_QUERY='https://jira.greenpeace.org/rest/api/2/search?jql=project%20%3D%20PLANET%20AND%20status%20in%20(%22IN%20PROGRESS%22%2C%20%22IN%20DEVELOPMENT%22%2C%20%22IN%20TESTING%22%2C%20%22In%20Review%22)%20AND%20Track%20in%20(Development%2C%20Infra)&fields=summary,customfield_13000'
+JIRA_API_QUERY='https://jira.greenpeace.org/rest/api/2/search?jql=project%20%3D%20PLANET%20AND%20status%20in%20(%22IN%20PROGRESS%22%2C%20%22IN%20DEVELOPMENT%22%2C%20%22IN%20TESTING%22%2C%20%22In%20Review%22)%20AND%20Track%20in%20(Development%2C%20Infrastructure)&fields=summary,customfield_13000'
 
 # https://namingschemes.com/Solar_System
 SWARM = {
