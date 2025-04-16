@@ -1,0 +1,84 @@
+---
+version: 2.1
+
+docker_auth: &docker_auth
+  username: $DOCKERHUB_USERNAME
+  password: $DOCKERHUB_PASSWORD
+
+defaults: &defaults
+  docker:
+    - image: greenpeaceinternational/circleci-base:latest
+      auth:
+        <<: *docker_auth
+  environment:
+    GOOGLE_PROJECT_ID: planet-4-151612
+
+jobs:
+  lint:
+    <<: *defaults
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run:
+          name: lint
+          command: make lint
+
+  tag:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: prepare git
+          command: |
+            git config user.email "${GIT_USER_EMAIL}"
+            git config user.name "CircleCI Bot"
+            git config merge.ours.driver true
+      - run:
+          name: tag
+          command: |
+            current_version=$(git-current-tag.sh)
+            new_version=$(increment-version.sh $current_version)
+            echo "Tagging to ${new_version}"
+            git tag -a "$new_version" -m "$new_version"
+            git push origin --tags
+
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: gcloud authenticate
+          command: activate-gcloud-account.sh
+      - run:
+          name: deploy
+          command: make deploy
+
+workflows:
+  branch:
+    jobs:
+      - lint
+      - hold-promote:
+          type: approval
+          requires:
+            - lint
+          filters:
+            branches:
+              only: main
+      - tag:
+          context: org-global
+          requires:
+            - hold-promote
+          filters:
+            branches:
+              only: main
+
+  tag:
+    jobs:
+      - deploy:
+          context: org-global
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/

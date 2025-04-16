@@ -1,0 +1,10 @@
+# =============================================================================
+
+# GCP project details
+GOOGLE_PROJECT_ID=planet-4-151612
+REGION=us-central1
+
+# Function details
+FUNCTION_NAME=p4-test-swarm
+ENTRYPOINT=main
+PYTHON_VERSION=python39
