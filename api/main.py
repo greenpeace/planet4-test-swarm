@@ -1,7 +1,12 @@
+from base64 import b64decode
+from jira import JIRA
 import json
-import requests
+import os
 
-JIRA_API_QUERY='https://jira.greenpeace.org/rest/api/2/search?jql=project%20%3D%20PLANET%20AND%20status%20in%20(%22IN%20PROGRESS%22%2C%20%22IN%20DEVELOPMENT%22%2C%20%22IN%20TESTING%22%2C%20%22In%20Review%22)&fields=summary,customfield_13000'
+JIRA_SERVER = 'https://greenpeace-planet4.atlassian.net/'
+JQL = 'project=PLANET and status in ("IN DEVELOPMENT", "IN REVIEW")'
+JIRA_USER = os.getenv('JIRA_USER')
+JIRA_TOKEN = os.getenv('JIRA_TOKEN')
 
 # https://namingschemes.com/Solar_System
 SWARM = {
@@ -30,30 +35,27 @@ SWARM = {
     'venus': 1
 }
 
+HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '1800',
+    'Content-Type': 'application/json'
+}
+
 
 def main(request):
-    response = requests.get(JIRA_API_QUERY, verify=False)
+    token = b64decode(JIRA_TOKEN).decode('utf-8').replace('\n', '')
+    jira = JIRA(server=JIRA_SERVER, basic_auth=(JIRA_USER, token))
 
-    headers = {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Max-Age': '1800',
-        'Content-Type': 'application/json'
-    }
+    tickets = jira.search_issues(JQL)
 
-    binary = response.content
-    data = json.loads(binary)
-
-    for ticket in data['issues']:
-        fields = ticket['fields']
-        environments = fields['customfield_13000']
-        if environments:
-            for item in environments:
-                env = item['value']
-                if env in SWARM:
-                    SWARM[env] = ticket['key']
+    for ticket in tickets:
+        if ticket.fields.customfield_10084:
+            instance = ticket.fields.customfield_10084.value
+            if instance in SWARM:
+                SWARM[instance] = ticket.key
 
     output = json.dumps(SWARM)
 
-    return (output, 200, headers)
+    return (output, 200, HEADERS)

@@ -29,7 +29,7 @@ request.onload = function() {
         <a href="${ci_url}" target="_blank" class="link"><img src="static/circle-o.svg" alt="ci" title="ci"></a>`
 
       if (status == 'off') {
-        const ticket_url = 'https://jira.greenpeace.org/browse/' + item[1];
+        const ticket_url = 'https://greenpeace-planet4.atlassian.net/browse/' + item[1];
         html += `<a href="${ticket_url}" target="_blank" class="link"><img src="static/tag.svg" alt="ticket" title="ticket"></a>`;
       }
 

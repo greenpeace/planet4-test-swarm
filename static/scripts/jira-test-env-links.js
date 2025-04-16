@@ -2,7 +2,7 @@
 // @name         Test env links
 // @description  Adds links to the frontend, admin, github and circleci pages of the test environment.
 // @version      0.1
-// @match        https://jira.greenpeace.org/browse/PLANET-*
+// @match        https://greenpeace-planet4.atlassian.net/browse/PLANET-*
 // @grant        none
 // ==/UserScript==
 
