@@ -45,4 +45,4 @@ endif
 		--source ./api/ \
 		--project $(GOOGLE_PROJECT_ID) \
 		--region $(REGION) \
-		--set-env-vars JIRA_USER=$(JIRA_USER) JIRA_TOKEN=$(JIRA_TOKEN)
+		--set-env-vars JIRA_USER=$(JIRA_USER),JIRA_TOKEN=$(JIRA_TOKEN)
