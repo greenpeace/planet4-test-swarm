@@ -51,8 +51,8 @@ def main(request):
     tickets = jira.search_issues(JQL)
 
     for ticket in tickets:
-        if ticket.fields.customfield_10084:
-            instance = ticket.fields.customfield_10084.value
+        if ticket.fields.customfield_10201:
+            instance = ticket.fields.customfield_10201.value
             if instance in SWARM:
                 SWARM[instance] = ticket.key
 
