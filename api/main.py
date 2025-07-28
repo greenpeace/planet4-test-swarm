@@ -52,7 +52,7 @@ def main(request):
 
     for ticket in tickets:
         if ticket.fields.customfield_10201:
-            instance = ticket.fields.customfield_10201.value
+            instance = ticket.fields.customfield_10201[0].value
             if instance in SWARM:
                 SWARM[instance] = ticket.key
 
